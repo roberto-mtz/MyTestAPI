@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace WebAPIStarter.Controllers
 {
@@ -6,9 +7,14 @@ namespace WebAPIStarter.Controllers
     [Route("[controller]")]
     public class MyTestController : ControllerBase
     {
+        string appName = "";
+        public MyTestController(IConfiguration config) {
+            appName = config.GetValue<string>("applicationName");
+        }
+
         [HttpGet]
         public string Get(){
-            return "Hello World from MyTest!";
+            return "Hello World from " + appName;
         }
     }
 }
