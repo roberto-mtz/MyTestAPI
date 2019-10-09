@@ -20,9 +20,9 @@ namespace WebAPIStarter
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>{
                     webBuilder.UseStartup<Startup>();
-                })              
-                .ConfigureAppConfiguration(config => {
-                    config.AddJsonFile("config.json", optional: false, reloadOnChange: true);
-                });
+                });              
+                //.ConfigureAppConfiguration(config => {
+                //    config.AddJsonFile("config.json", optional: false, reloadOnChange: true);
+                //});
     }
 }
